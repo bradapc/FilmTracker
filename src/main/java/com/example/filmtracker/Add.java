@@ -63,6 +63,7 @@ public class Add {
             int year = Integer.parseInt(yearField.getText());
             Movie newMovie = new Movie(name, author, year, "horror", 5);
             Collection.addToCollection(newMovie);
+            Collection.updateListView();
             addWindow.close();
         });
 

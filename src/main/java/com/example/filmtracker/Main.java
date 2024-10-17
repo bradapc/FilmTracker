@@ -23,6 +23,7 @@ public class Main extends Application {
         TextField filterListingsText = new TextField();
         filterListingsText.setPromptText("filter film listings");
         ListView<String> listingsDisplay = new ListView<String>();
+        Collection.collectionListView = listingsDisplay;
         listingsVBox.getChildren().addAll(filterListingsText, listingsDisplay);
 
 

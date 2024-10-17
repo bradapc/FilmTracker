@@ -1,7 +1,7 @@
 package com.example.filmtracker;
 
 public class Movie {
-    private int ID;
+    private int ID = -1;
     private String name;
     private String author;
     private int year;
@@ -14,6 +14,10 @@ public class Movie {
         this.year = year;
         this.genre = genre;
         this.rating = rating;
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public String getName() {
