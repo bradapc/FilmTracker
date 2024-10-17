@@ -29,6 +29,22 @@ public class Collection {
         return movie;
     }
 
+    static void updateMovieIDs() {
+        for (int i = 0; i < collection.size(); i++) {
+            collection.get(i).setID(i);
+        }
+    }
+
+    public static void removeMovieByID(int id) {
+        for (int i = 0; i < collection.size(); i++) {
+            if (collection.get(i).getID() == id) {
+                collection.remove(i);
+            }
+        }
+        updateMovieIDs();
+        updateListView();
+    }
+
     public static void addToCollection(Movie m)
     {
         m.setID(collection.size());

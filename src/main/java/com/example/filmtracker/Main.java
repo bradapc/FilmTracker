@@ -29,15 +29,16 @@ public class Main extends Application {
 
         Button viewListingButton = new Button("View");
         viewListingButton.setOnAction(e -> {
-            String listing = listingsDisplay.getSelectionModel().getSelectedItem();
-            int id = Integer.parseInt(listing.substring(0,listing.indexOf(":")));
-            View.display(id);
+            View.display(getCurrentListingID(listingsDisplay));
         });
         Button addListingButton = new Button("Add");
         addListingButton.setOnAction(e -> {
             Add.display();
         });
         Button removeListingButton = new Button("Remove");
+        removeListingButton.setOnAction(e -> {
+            Collection.removeMovieByID(getCurrentListingID(listingsDisplay));
+        });
         viewListingButton.setMinWidth(80);
         addListingButton.setMinWidth(80);
         removeListingButton.setMinWidth(80);
@@ -59,6 +60,11 @@ public class Main extends Application {
         primaryStage.setTitle("Sawit - Film Tracker");
         primaryStage.setScene(mainScene);
         primaryStage.show();
+    }
+
+    int getCurrentListingID(ListView<String> lv) {
+        String listing = lv.getSelectionModel().getSelectedItem();
+        return Integer.parseInt(listing.substring(0,listing.indexOf(":")));
     }
 
     public static void main(String[] args) {
