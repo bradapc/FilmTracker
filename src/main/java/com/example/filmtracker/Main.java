@@ -38,12 +38,10 @@ public class Main extends Application {
             Add.display();
         });
         Button removeListingButton = new Button("Remove");
-        Button editListingButton = new Button("Edit");
         viewListingButton.setMinWidth(80);
         addListingButton.setMinWidth(80);
         removeListingButton.setMinWidth(80);
-        editListingButton.setMinWidth(80);
-        controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton, editListingButton);
+        controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton);
 
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
