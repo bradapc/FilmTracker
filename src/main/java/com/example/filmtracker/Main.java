@@ -28,6 +28,11 @@ public class Main extends Application {
 
 
         Button viewListingButton = new Button("View");
+        viewListingButton.setOnAction(e -> {
+            String listing = listingsDisplay.getSelectionModel().getSelectedItem();
+            int id = Integer.parseInt(listing.substring(0,listing.indexOf(":")));
+            View.display(id);
+        });
         Button addListingButton = new Button("Add");
         addListingButton.setOnAction(e -> {
             Add.display();

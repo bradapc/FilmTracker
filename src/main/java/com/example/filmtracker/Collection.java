@@ -19,6 +19,16 @@ public class Collection {
         }
     }
 
+    public static Movie getMovieByID(int id) {
+        Movie movie = null;
+        for (int i = 0; i < collection.size(); i++) {
+            if (collection.get(i).getID() == id) {
+                movie = collection.get(i);
+            }
+        }
+        return movie;
+    }
+
     public static void addToCollection(Movie m)
     {
         m.setID(collection.size());
