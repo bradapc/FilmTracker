@@ -31,7 +31,7 @@ public class View {
         TextField movieAuthor = new TextField(selectedMovie.getAuthor());
         TextField movieYear = new TextField(selectedMovie.getYear() + "");
         TextField movieGenre = new TextField(selectedMovie.getGenre());
-        TextField movieRating = new TextField(selectedMovie.getRating() + "");
+        Label movieRating = new Label(getRatingStr(selectedMovie.getRating()));
 
         Button saveButton = new Button("Save");
         Button closeButton = new Button("Close");
@@ -51,5 +51,13 @@ public class View {
         viewWindow.setScene(scene);
         viewWindow.showAndWait();
 
+    }
+
+    static String getRatingStr(int rating) {
+        String s = "";
+        for (int i = 0; i < rating; i++) {
+            s += "★";
+        }
+        return s;
     }
 }
