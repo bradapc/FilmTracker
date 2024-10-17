@@ -20,6 +20,10 @@ public class Movie {
         return ID;
     }
 
+    public void setID(int newID) {
+        ID = newID;
+    }
+
     public String getName() {
         return name;
     }

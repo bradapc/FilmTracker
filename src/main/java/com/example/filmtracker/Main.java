@@ -43,6 +43,14 @@ public class Main extends Application {
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
 
+        //TESTING
+        Movie mov1 = new Movie("Terrifier 3", "Damien Leone", 2024, "horror", 4);
+        Movie mov2 = new Movie("The Substance", "Unknown", 2024, "horror", 5);
+        Movie mov3 = new Movie("Martyrs", "Pascal Laugier", 2008, "horror", 5);
+        Collection.addToCollection(mov1);
+        Collection.addToCollection(mov2);
+        Collection.addToCollection(mov3);
+        Collection.updateListView();
 
 
         primaryStage.setTitle("Sawit - Film Tracker");

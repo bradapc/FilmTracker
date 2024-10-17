@@ -19,7 +19,9 @@ public class Collection {
         }
     }
 
-    public static void addToCollection(Movie m) {
+    public static void addToCollection(Movie m)
+    {
+        m.setID(collection.size());
         collection.add(m);
     }
 
