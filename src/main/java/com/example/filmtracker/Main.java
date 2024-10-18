@@ -29,7 +29,9 @@ public class Main extends Application {
 
         Button viewListingButton = new Button("View");
         viewListingButton.setOnAction(e -> {
-            View.display(getCurrentListingID(listingsDisplay));
+            if (!listingsDisplay.getSelectionModel().isEmpty()) {
+                View.display(getCurrentListingID(listingsDisplay));
+            }
         });
         Button addListingButton = new Button("Add");
         addListingButton.setOnAction(e -> {
@@ -37,7 +39,9 @@ public class Main extends Application {
         });
         Button removeListingButton = new Button("Remove");
         removeListingButton.setOnAction(e -> {
-            Collection.removeMovieByID(getCurrentListingID(listingsDisplay));
+            if (!listingsDisplay.getSelectionModel().isEmpty()) {
+                Collection.removeMovieByID(getCurrentListingID(listingsDisplay));
+            }
         });
         viewListingButton.setMinWidth(80);
         addListingButton.setMinWidth(80);
@@ -50,14 +54,14 @@ public class Main extends Application {
         //TESTING
         Movie mov1 = new Movie("Terrifier 3", "Damien Leone", 2024, "horror", 4);
         Movie mov2 = new Movie("The Substance", "Unknown", 2024, "horror", 5);
-        Movie mov3 = new Movie("Martyrs", "Pascal Laugier", 2008, "horror", 5);
+        Movie mov3 = new Movie("Speak no Evil", "Unknown", 2022, "horror", 5);
         Collection.addToCollection(mov1);
         Collection.addToCollection(mov2);
         Collection.addToCollection(mov3);
         Collection.updateListView();
 
 
-        primaryStage.setTitle("Sawit - Film Tracker");
+        primaryStage.setTitle("Film Tracker");
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }

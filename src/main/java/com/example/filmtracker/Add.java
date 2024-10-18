@@ -24,7 +24,7 @@ public class Add {
         Stage addWindow = new Stage();
         addWindow.setResizable(false);
         addWindow.initModality(Modality.APPLICATION_MODAL);
-        addWindow.setTitle("Sawit - Add Listing");
+        addWindow.setTitle("Add Listing");
 
         Label listingNameLabel = new Label("Name");
         TextField listingNameField = new TextField();

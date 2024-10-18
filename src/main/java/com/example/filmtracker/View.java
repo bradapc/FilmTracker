@@ -20,7 +20,7 @@ public class View {
         Stage viewWindow = new Stage();
         viewWindow.setResizable(false);
         viewWindow.initModality(Modality.APPLICATION_MODAL);
-        viewWindow.setTitle("Sawit - View Listing");
+        viewWindow.setTitle("View Listing");
         Movie selectedMovie = Collection.getMovieByID(movieID);
         Label movieNameLabel = new Label("Movie Name");
         Label movieAuthorLabel = new Label("Author");
