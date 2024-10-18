@@ -29,6 +29,25 @@ public class Collection {
         return movie;
     }
 
+    public static boolean isValidMovieEntries(String name, String author, int year, String genre, int rating) {
+        if (name.length() < 3) return false;
+        if (author.length() < 3) return false;
+        if (year < 1900) return false;
+        //add genre validation
+        if (rating < 0 || rating > 5) return false;
+        return true;
+    }
+
+    public static void updateMovieInfo(int movieID, String name, String author, int year, String genre, int rating) {
+        Movie m = getMovieByID(movieID);
+        m.setName(name);
+        m.setAuthor(author);
+        m.setYear(year);
+        m.setGenre(genre);
+        m.setRating(rating);
+        updateListView();
+    }
+
     static void updateMovieIDs() {
         for (int i = 0; i < collection.size(); i++) {
             collection.get(i).setID(i);

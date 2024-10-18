@@ -34,6 +34,18 @@ public class View {
         Label movieRating = new Label(getRatingStr(selectedMovie.getRating()));
 
         Button saveButton = new Button("Save");
+        saveButton.setOnAction(e -> {
+            String newName = movieName.getText();
+            String newAuthor = movieAuthor.getText();
+            int newYear = Integer.parseInt(movieYear.getText());
+            String newGenre = movieGenre.getText();
+            int newRating = selectedMovie.getRating();
+            if (Collection.isValidMovieEntries(newName, newAuthor, newYear, newGenre, newRating)) {
+                Collection.updateMovieInfo(movieID, newName, newAuthor, newYear, newGenre, newRating);
+                viewWindow.close();
+            }
+
+        });
         Button closeButton = new Button("Close");
         closeButton.setOnAction(e -> viewWindow.close());
 
@@ -52,6 +64,7 @@ public class View {
         viewWindow.showAndWait();
 
     }
+
 
     static String getRatingStr(int rating) {
         String s = "";
