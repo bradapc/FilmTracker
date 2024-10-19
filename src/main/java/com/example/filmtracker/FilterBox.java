@@ -3,6 +3,14 @@ package com.example.filmtracker;
 import javafx.scene.control.TextField;
 import java.util.ArrayList;
 
+/*
+TO ADD:
+-Allow filtering based on certain parameters. If no parameter specified, search by name.
+If prefixing filter with d:, search by date
+If prefixing filter with a:, search by author
+etc.
+ */
+
 public class FilterBox extends TextField {
     String currentSearch = "";
     FilterBox() {

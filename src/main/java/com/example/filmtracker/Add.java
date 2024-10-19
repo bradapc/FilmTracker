@@ -32,16 +32,7 @@ public class Add {
         TextField authorNameField = new TextField();
         Label yearLabel = new Label("Year");
         TextField yearField = new TextField();
-        ObservableList<String> genres =
-                FXCollections.observableArrayList(
-                        "Horror",
-                        "Thriller",
-                        "Comedy",
-                        "Drama",
-                        "Fantasy",
-                        "Action",
-                        "Adventure");
-        final ComboBox<String> genreBox = new ComboBox<String>(genres);
+        final GenreBox genreBox = new GenreBox();
         ObservableList<String> ratings =
                 FXCollections.observableArrayList(
                         "★☆☆☆☆",

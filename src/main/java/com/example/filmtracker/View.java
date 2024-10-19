@@ -30,7 +30,8 @@ public class View {
         TextField movieName = new TextField(selectedMovie.getName());
         TextField movieAuthor = new TextField(selectedMovie.getAuthor());
         TextField movieYear = new TextField(selectedMovie.getYear() + "");
-        TextField movieGenre = new TextField(selectedMovie.getGenre());
+        final GenreBox movieGenre = new GenreBox();
+        movieGenre.setCurrentGenre(selectedMovie.getGenre());
         Label movieRating = new Label(getRatingStr(selectedMovie.getRating()));
 
         Button saveButton = new Button("Save");
@@ -38,7 +39,7 @@ public class View {
             String newName = movieName.getText();
             String newAuthor = movieAuthor.getText();
             int newYear = Integer.parseInt(movieYear.getText());
-            String newGenre = movieGenre.getText();
+            String newGenre = movieGenre.getValue();
             int newRating = selectedMovie.getRating();
             if (Collection.isValidMovieEntries(newName, newAuthor, newYear, newGenre, newRating)) {
                 Collection.updateMovieInfo(movieID, newName, newAuthor, newYear, newGenre, newRating);
