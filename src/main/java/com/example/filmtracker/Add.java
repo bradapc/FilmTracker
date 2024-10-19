@@ -45,7 +45,7 @@ public class Add {
             String name = listingNameField.getText();
             String author = authorNameField.getText();
             int year = Integer.parseInt(yearField.getText());
-            Movie newMovie = new Movie(name, author, year, "horror", ratingBox.getIntRating());
+            Movie newMovie = new Movie(name, author, year, genreBox.getValue(), ratingBox.getIntRating());
             Collection.addToCollection(newMovie);
             addWindow.close();
         });
