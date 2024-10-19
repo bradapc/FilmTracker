@@ -36,6 +36,8 @@ public class View {
         commentsField.setWrapText(true);
         commentsField.setPromptText("what did you think?");
         commentsField.setText(selectedMovie.getComments());
+        CheckBox recommendedBox = new CheckBox("Recommendation?");
+        recommendedBox.setSelected(selectedMovie.getRecommendToFriend());
 
         Button saveButton = new Button("Save");
         saveButton.setOnAction(e -> {
@@ -46,7 +48,7 @@ public class View {
             int newRating = movieRating.getIntRating();
             String newComments = commentsField.getText();
             if (Collection.isValidMovieEntries(newName, newAuthor, newYear, newGenre, newRating)) {
-                Collection.updateMovieInfo(movieID, newName, newAuthor, newYear, newGenre, newRating, newComments);
+                Collection.updateMovieInfo(movieID, newName, newAuthor, newYear, newGenre, newRating, newComments, recommendedBox.isSelected());
                 viewWindow.close();
             }
 
@@ -58,7 +60,7 @@ public class View {
         comboBoxLayout.getChildren().addAll(movieGenre, movieRating);
 
         HBox buttonLayout = new HBox();
-        buttonLayout.getChildren().addAll(saveButton, closeButton);
+        buttonLayout.getChildren().addAll(saveButton, closeButton, recommendedBox);
 
         VBox viewLayout = new VBox();
         viewLayout.getChildren().addAll(movieNameLabel, movieName, movieAuthorLabel,

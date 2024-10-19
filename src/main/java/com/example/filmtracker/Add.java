@@ -4,16 +4,11 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -38,6 +33,7 @@ public class Add {
         TextArea commentsField = new TextArea();
         commentsField.setPromptText("what did you think?");
         commentsField.setWrapText(true);
+        CheckBox recommendedBox = new CheckBox("Recommendation?");
 
         Button addButton = new Button("Add");
         addButton.setMinWidth(80);
@@ -46,16 +42,21 @@ public class Add {
             String name = listingNameField.getText();
             String author = authorNameField.getText();
             int year = Integer.parseInt(yearField.getText());
-            Movie newMovie = new Movie(name, author, year, genreBox.getValue(), ratingBox.getIntRating(), commentsField.getText());
+            boolean isRecommended = recommendedBox.isSelected();
+            Movie newMovie = new Movie(name, author, year, genreBox.getValue(), ratingBox.getIntRating(), commentsField.getText(), isRecommended);
             Collection.addToCollection(newMovie);
             addWindow.close();
         });
 
         HBox comboBoxLayout = new HBox();
         comboBoxLayout.getChildren().addAll(genreBox, ratingBox);
+
+        HBox buttonLayout = new HBox();
+        buttonLayout.getChildren().addAll(addButton, recommendedBox);
+
         VBox layout = new VBox();
         layout.getChildren().addAll(listingNameLabel, listingNameField, authorNameLabel, authorNameField,
-                yearLabel, yearField, comboBoxLayout, commentsField, addButton);
+                yearLabel, yearField, comboBoxLayout, commentsField, buttonLayout);
 
         Scene scene = new Scene(layout, 250, 250);
         addWindow.setScene(scene);

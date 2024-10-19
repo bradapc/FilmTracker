@@ -41,7 +41,7 @@ public class Collection {
         return true;
     }
 
-    public static void updateMovieInfo(int movieID, String name, String author, int year, String genre, int rating, String newComments) {
+    public static void updateMovieInfo(int movieID, String name, String author, int year, String genre, int rating, String newComments, boolean isRecommended) {
         Movie m = getMovieByID(movieID);
         m.setName(name);
         m.setAuthor(author);
@@ -49,6 +49,7 @@ public class Collection {
         m.setGenre(genre);
         m.setRating(rating);
         m.setComments(newComments);
+        m.setRecommendToFriend(isRecommended);
         updateCollectionDisplay(collection);
     }
 

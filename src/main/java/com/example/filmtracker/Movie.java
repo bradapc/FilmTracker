@@ -8,6 +8,7 @@ public class Movie {
     private String genre;
     private int rating;
     private String comments;
+    private boolean recommendToFriend = false;
 
     public Movie(String name, String author, int year, String genre, int rating, String comments) {
         this.name = name;
@@ -16,6 +17,24 @@ public class Movie {
         this.genre = genre;
         this.rating = rating;
         this.comments = comments;
+    }
+
+    public Movie(String name, String author, int year, String genre, int rating, String comments, boolean recommendToFriend) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+        this.genre = genre;
+        this.rating = rating;
+        this.comments = comments;
+        this.recommendToFriend = recommendToFriend;
+    }
+
+    public void setRecommendToFriend(boolean recommendToFriend) {
+        this.recommendToFriend = recommendToFriend;
+    }
+
+    public boolean getRecommendToFriend() {
+        return recommendToFriend;
     }
 
     public int getID() {
