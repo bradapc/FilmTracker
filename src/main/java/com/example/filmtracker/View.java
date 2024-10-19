@@ -25,8 +25,6 @@ public class View {
         Label movieNameLabel = new Label("Movie Name");
         Label movieAuthorLabel = new Label("Author");
         Label movieYearLabel = new Label("Year");
-        Label movieGenreLabel = new Label("Genre");
-        Label movieRatingLabel = new Label("Rating");
         TextField movieName = new TextField(selectedMovie.getName());
         TextField movieAuthor = new TextField(selectedMovie.getAuthor());
         TextField movieYear = new TextField(selectedMovie.getYear() + "");
@@ -51,12 +49,15 @@ public class View {
         Button closeButton = new Button("Close");
         closeButton.setOnAction(e -> viewWindow.close());
 
+        HBox comboBoxLayout = new HBox();
+        comboBoxLayout.getChildren().addAll(movieGenre, movieRating);
+
         HBox buttonLayout = new HBox();
         buttonLayout.getChildren().addAll(saveButton, closeButton);
 
         VBox viewLayout = new VBox();
         viewLayout.getChildren().addAll(movieNameLabel, movieName, movieAuthorLabel,
-                movieAuthor, movieYearLabel, movieYear, movieGenreLabel, movieGenre, movieRatingLabel, movieRating);
+                movieAuthor, movieYearLabel, movieYear, comboBoxLayout);
 
         VBox layout = new VBox();
         layout.getChildren().addAll(viewLayout, buttonLayout);
