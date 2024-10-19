@@ -36,6 +36,7 @@ public class Add {
         final RatingBox ratingBox = new RatingBox();
 
         TextArea commentsField = new TextArea();
+        commentsField.setPromptText("what did you think?");
         commentsField.setWrapText(true);
 
         Button addButton = new Button("Add");

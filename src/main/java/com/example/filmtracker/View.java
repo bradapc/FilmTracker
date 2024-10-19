@@ -34,6 +34,7 @@ public class View {
         movieRating.setCurrentRating(selectedMovie.getRating());
         TextArea commentsField = new TextArea();
         commentsField.setWrapText(true);
+        commentsField.setPromptText("what did you think?");
         commentsField.setText(selectedMovie.getComments());
 
         Button saveButton = new Button("Save");
