@@ -27,7 +27,6 @@ public class Add {
         TextField authorNameField = new TextField();
         AuthorCheckbox unknownAuthorBox = new AuthorCheckbox("?");
         unknownAuthorBox.setAuthorField(authorNameField);
-        unknownAuthorBox.setOnAction(e -> unknownAuthorBox.toggleAuthorUnknown());
         Label yearLabel = new Label("Year");
         TextField yearField = new TextField();
         final GenreBox genreBox = new GenreBox();
@@ -37,6 +36,7 @@ public class Add {
         commentsField.setPromptText("what did you think?");
         commentsField.setWrapText(true);
         CheckBox recommendedBox = new CheckBox("Recommendation?");
+        //Convert recommendedbox to new class that changes its text to Recommended or Not Recommended based on if selected
 
         Button addButton = new Button("Add");
         addButton.setMinWidth(80);

@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 public class AuthorCheckbox extends CheckBox {
     public AuthorCheckbox(String val) {
         super(val);
+        setOnAction(e -> toggleAuthorUnknown());
     }
     private TextField authorField;
 
