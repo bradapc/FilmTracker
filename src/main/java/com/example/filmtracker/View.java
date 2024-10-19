@@ -32,7 +32,8 @@ public class View {
         TextField movieYear = new TextField(selectedMovie.getYear() + "");
         final GenreBox movieGenre = new GenreBox();
         movieGenre.setCurrentGenre(selectedMovie.getGenre());
-        Label movieRating = new Label(getRatingStr(selectedMovie.getRating()));
+        RatingBox movieRating = new RatingBox();
+        movieRating.setCurrentRating(selectedMovie.getRating());
 
         Button saveButton = new Button("Save");
         saveButton.setOnAction(e -> {
@@ -40,7 +41,7 @@ public class View {
             String newAuthor = movieAuthor.getText();
             int newYear = Integer.parseInt(movieYear.getText());
             String newGenre = movieGenre.getValue();
-            int newRating = selectedMovie.getRating();
+            int newRating = movieRating.getIntRating();
             if (Collection.isValidMovieEntries(newName, newAuthor, newYear, newGenre, newRating)) {
                 Collection.updateMovieInfo(movieID, newName, newAuthor, newYear, newGenre, newRating);
                 viewWindow.close();
@@ -64,14 +65,5 @@ public class View {
         viewWindow.setScene(scene);
         viewWindow.showAndWait();
 
-    }
-
-
-    static String getRatingStr(int rating) {
-        String s = "";
-        for (int i = 0; i < rating; i++) {
-            s += "★";
-        }
-        return s;
     }
 }

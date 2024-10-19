@@ -33,14 +33,7 @@ public class Add {
         Label yearLabel = new Label("Year");
         TextField yearField = new TextField();
         final GenreBox genreBox = new GenreBox();
-        ObservableList<String> ratings =
-                FXCollections.observableArrayList(
-                        "★☆☆☆☆",
-                        "★★☆☆☆",
-                        "★★★☆☆",
-                        "★★★★☆",
-                        "★★★★★");
-        final ComboBox<String> ratingBox = new ComboBox<String>(ratings);
+        final RatingBox ratingBox = new RatingBox();
 
         TextArea commentsField = new TextArea();
         commentsField.setWrapText(true);
@@ -52,7 +45,7 @@ public class Add {
             String name = listingNameField.getText();
             String author = authorNameField.getText();
             int year = Integer.parseInt(yearField.getText());
-            Movie newMovie = new Movie(name, author, year, "horror", 5);
+            Movie newMovie = new Movie(name, author, year, "horror", ratingBox.getIntRating());
             Collection.addToCollection(newMovie);
             addWindow.close();
         });
