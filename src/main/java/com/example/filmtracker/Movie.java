@@ -7,13 +7,15 @@ public class Movie {
     private int year;
     private String genre;
     private int rating;
+    private String comments;
 
-    public Movie(String name, String author, int year, String genre, int rating) {
+    public Movie(String name, String author, int year, String genre, int rating, String comments) {
         this.name = name;
         this.author = author;
         this.year = year;
         this.genre = genre;
         this.rating = rating;
+        this.comments = comments;
     }
 
     public int getID() {
@@ -22,6 +24,14 @@ public class Movie {
 
     public void setID(int newID) {
         ID = newID;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public String getComments() {
+        return comments;
     }
 
     public String getName() {

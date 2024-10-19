@@ -41,13 +41,14 @@ public class Collection {
         return true;
     }
 
-    public static void updateMovieInfo(int movieID, String name, String author, int year, String genre, int rating) {
+    public static void updateMovieInfo(int movieID, String name, String author, int year, String genre, int rating, String newComments) {
         Movie m = getMovieByID(movieID);
         m.setName(name);
         m.setAuthor(author);
         m.setYear(year);
         m.setGenre(genre);
         m.setRating(rating);
+        m.setComments(newComments);
         updateCollectionDisplay(collection);
     }
 

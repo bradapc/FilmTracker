@@ -32,6 +32,9 @@ public class View {
         movieGenre.setCurrentGenre(selectedMovie.getGenre());
         RatingBox movieRating = new RatingBox();
         movieRating.setCurrentRating(selectedMovie.getRating());
+        TextArea commentsField = new TextArea();
+        commentsField.setWrapText(true);
+        commentsField.setText(selectedMovie.getComments());
 
         Button saveButton = new Button("Save");
         saveButton.setOnAction(e -> {
@@ -40,8 +43,9 @@ public class View {
             int newYear = Integer.parseInt(movieYear.getText());
             String newGenre = movieGenre.getValue();
             int newRating = movieRating.getIntRating();
+            String newComments = commentsField.getText();
             if (Collection.isValidMovieEntries(newName, newAuthor, newYear, newGenre, newRating)) {
-                Collection.updateMovieInfo(movieID, newName, newAuthor, newYear, newGenre, newRating);
+                Collection.updateMovieInfo(movieID, newName, newAuthor, newYear, newGenre, newRating, newComments);
                 viewWindow.close();
             }
 
@@ -57,7 +61,7 @@ public class View {
 
         VBox viewLayout = new VBox();
         viewLayout.getChildren().addAll(movieNameLabel, movieName, movieAuthorLabel,
-                movieAuthor, movieYearLabel, movieYear, comboBoxLayout);
+                movieAuthor, movieYearLabel, movieYear, comboBoxLayout, commentsField);
 
         VBox layout = new VBox();
         layout.getChildren().addAll(viewLayout, buttonLayout);
