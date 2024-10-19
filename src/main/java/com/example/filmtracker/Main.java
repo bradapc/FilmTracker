@@ -1,6 +1,7 @@
 package com.example.filmtracker;
 
 import javafx.application.Application;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,11 +18,13 @@ public class Main extends Application {
         VBox listingsVBox = new VBox();
         VBox controlsVBox = new VBox();
 
+        Label collectionTitle = new Label();
         TextField filterListingsText = new TextField();
         filterListingsText.setPromptText("filter film listings");
         ListView<String> listingsDisplay = new ListView<String>();
         Collection.collectionListView = listingsDisplay;
-        listingsVBox.getChildren().addAll(filterListingsText, listingsDisplay);
+        Collection.collectionListLabel = collectionTitle;
+        listingsVBox.getChildren().addAll(collectionTitle, filterListingsText, listingsDisplay);
 
 
         Button viewListingButton = new Button("View");
@@ -55,7 +58,6 @@ public class Main extends Application {
         Collection.addToCollection(mov1);
         Collection.addToCollection(mov2);
         Collection.addToCollection(mov3);
-        Collection.updateListView();
 
 
         primaryStage.setTitle("Film Tracker");

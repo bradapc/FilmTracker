@@ -1,5 +1,6 @@
 package com.example.filmtracker;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 import java.util.ArrayList;
@@ -9,14 +10,16 @@ public class Collection {
     static ArrayList<Movie> collection = new ArrayList<Movie>();
 
     public static ListView<String> collectionListView;
+    public static Label collectionListLabel;
 
-    public static void updateListView() {
+    public static void updateCollectionDisplay() {
         collectionListView.getItems().clear();
         for (int i = 0; i < collection.size(); i++) {
             String movieEntry = collection.get(i).getID() + ": " + collection.get(i).getName()
                     + " (" + collection.get(i).getYear() + ")";
             collectionListView.getItems().add(movieEntry);
         }
+        collectionListLabel.setText("Film Collection (" + Collection.getCollectionSize() + " films)");
     }
 
     public static Movie getMovieByID(int id) {
@@ -45,7 +48,7 @@ public class Collection {
         m.setYear(year);
         m.setGenre(genre);
         m.setRating(rating);
-        updateListView();
+        updateCollectionDisplay();
     }
 
     static void updateMovieIDs() {
@@ -61,13 +64,18 @@ public class Collection {
             }
         }
         updateMovieIDs();
-        updateListView();
+        updateCollectionDisplay();
     }
 
     public static void addToCollection(Movie m)
     {
         m.setID(collection.size());
         collection.add(m);
+        updateCollectionDisplay();
+    }
+
+    public static int getCollectionSize() {
+        return collection.size();
     }
 
     public static ArrayList<Movie> getCollection() {
