@@ -24,7 +24,7 @@ public class Collection {
             out.close();
             file.close();
         } catch(IOException ex) {
-            System.out.println("IOException caught");
+            System.out.println("IOException caught while saving.");
         }
     }
 
@@ -34,9 +34,7 @@ public class Collection {
             FileInputStream file = new FileInputStream("collection.col");
             ObjectInputStream in = new ObjectInputStream(file);
             while (keepLoading) {
-                Movie movie = (Movie)in.readObject();
-                collection.add(movie);
-                System.out.println(movie.getName() + " added to collection.");
+                collection.add((Movie)in.readObject());
             }
             in.close();
             file.close();
@@ -53,6 +51,9 @@ public class Collection {
 
     public static void updateCollectionDisplay(ArrayList<Movie> c) {
         collectionListView.getItems().clear();
+        if (c.isEmpty()) {
+            return;
+        }
         for (int i = 0; i < c.size(); i++) {
             String movieEntry = c.get(i).getID() + ": " + c.get(i).getName()
                     + " (" + c.get(i).getYear() + ")";
