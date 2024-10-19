@@ -1,6 +1,8 @@
 package com.example.filmtracker;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     private int ID = -1;
     private String name;
     private String author;

@@ -3,6 +3,10 @@ package com.example.filmtracker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Collection {
@@ -11,6 +15,20 @@ public class Collection {
 
     public static ListView<String> collectionListView;
     public static Label collectionListLabel;
+
+    public static void saveCollection() {
+        try {
+            FileOutputStream file = new FileOutputStream("collection.col");
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            for (int i = 0; i < collection.size(); i++) {
+                out.writeObject(collection.get(i));
+            }
+            out.close();
+            file.close();
+        } catch(IOException ex) {
+            System.out.println("IOException caught");
+        }
+    }
 
     public static void updateCollectionDisplay(ArrayList<Movie> c) {
         collectionListView.getItems().clear();
