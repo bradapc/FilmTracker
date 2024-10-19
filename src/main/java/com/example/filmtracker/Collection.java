@@ -12,11 +12,11 @@ public class Collection {
     public static ListView<String> collectionListView;
     public static Label collectionListLabel;
 
-    public static void updateCollectionDisplay() {
+    public static void updateCollectionDisplay(ArrayList<Movie> c) {
         collectionListView.getItems().clear();
-        for (int i = 0; i < collection.size(); i++) {
-            String movieEntry = collection.get(i).getID() + ": " + collection.get(i).getName()
-                    + " (" + collection.get(i).getYear() + ")";
+        for (int i = 0; i < c.size(); i++) {
+            String movieEntry = c.get(i).getID() + ": " + c.get(i).getName()
+                    + " (" + c.get(i).getYear() + ")";
             collectionListView.getItems().add(movieEntry);
         }
         collectionListLabel.setText("Film Collection (" + Collection.getCollectionSize() + " films)");
@@ -48,7 +48,7 @@ public class Collection {
         m.setYear(year);
         m.setGenre(genre);
         m.setRating(rating);
-        updateCollectionDisplay();
+        updateCollectionDisplay(collection);
     }
 
     static void updateMovieIDs() {
@@ -64,14 +64,14 @@ public class Collection {
             }
         }
         updateMovieIDs();
-        updateCollectionDisplay();
+        updateCollectionDisplay(collection);
     }
 
     public static void addToCollection(Movie m)
     {
         m.setID(collection.size());
         collection.add(m);
-        updateCollectionDisplay();
+        updateCollectionDisplay(collection);
     }
 
     public static int getCollectionSize() {

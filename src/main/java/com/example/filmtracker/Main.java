@@ -19,7 +19,7 @@ public class Main extends Application {
         VBox controlsVBox = new VBox();
 
         Label collectionTitle = new Label();
-        TextField filterListingsText = new TextField();
+        FilterBox filterListingsText = new FilterBox();
         filterListingsText.setPromptText("filter film listings");
         ListView<String> listingsDisplay = new ListView<String>();
         Collection.collectionListView = listingsDisplay;
