@@ -36,6 +36,7 @@ public class View {
         commentsField.setWrapText(true);
         commentsField.setPromptText("what did you think?");
         commentsField.setText(selectedMovie.getComments());
+        Label dateAddedLabel = new Label("Added on: " + selectedMovie.getDateAdded());
         CheckBox recommendedBox = new CheckBox("Recommendation?");
         recommendedBox.setSelected(selectedMovie.getRecommendToFriend());
 
@@ -64,7 +65,7 @@ public class View {
 
         VBox viewLayout = new VBox();
         viewLayout.getChildren().addAll(movieNameLabel, movieName, movieAuthorLabel,
-                movieAuthor, movieYearLabel, movieYear, comboBoxLayout, commentsField);
+                movieAuthor, movieYearLabel, movieYear, comboBoxLayout, commentsField, dateAddedLabel);
 
         VBox layout = new VBox();
         layout.getChildren().addAll(viewLayout, buttonLayout);

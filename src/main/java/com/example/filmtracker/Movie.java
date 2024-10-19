@@ -1,6 +1,7 @@
 package com.example.filmtracker;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Movie implements Serializable {
     private int ID = -1;
@@ -11,6 +12,7 @@ public class Movie implements Serializable {
     private int rating;
     private String comments;
     private boolean recommendToFriend = false;
+    private String dateAdded;
 
     public Movie(String name, String author, int year, String genre, int rating, String comments) {
         this.name = name;
@@ -19,6 +21,8 @@ public class Movie implements Serializable {
         this.genre = genre;
         this.rating = rating;
         this.comments = comments;
+        LocalDate localDate = LocalDate.now();
+        dateAdded = localDate.toString();
     }
 
     public Movie(String name, String author, int year, String genre, int rating, String comments, boolean recommendToFriend) {
@@ -29,6 +33,12 @@ public class Movie implements Serializable {
         this.rating = rating;
         this.comments = comments;
         this.recommendToFriend = recommendToFriend;
+        LocalDate localDate = LocalDate.now();
+        dateAdded = localDate.toString();
+    }
+
+    public String getDateAdded() {
+        return dateAdded;
     }
 
     public void setRecommendToFriend(boolean recommendToFriend) {
