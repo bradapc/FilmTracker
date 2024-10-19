@@ -18,12 +18,17 @@ public class Main extends Application {
         VBox listingsVBox = new VBox();
         VBox controlsVBox = new VBox();
 
+        primaryStage.setOnCloseRequest(e -> {
+            handleApplicationClose();
+        });
+
         Label collectionTitle = new Label();
         FilterBox filterListingsText = new FilterBox();
         filterListingsText.setPromptText("filter film listings");
         ListView<String> listingsDisplay = new ListView<String>();
         Collection.collectionListView = listingsDisplay;
         Collection.collectionListLabel = collectionTitle;
+        Collection.loadCollection();
         listingsVBox.getChildren().addAll(collectionTitle, filterListingsText, listingsDisplay);
 
 
@@ -51,18 +56,13 @@ public class Main extends Application {
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
 
-        //TESTING
-        Movie mov1 = new Movie("Terrifier 3", "Damien Leone", 2024, "horror", 4, "N/A");
-        Movie mov2 = new Movie("The Substance", "Unknown", 2024, "horror", 5, "");
-        Movie mov3 = new Movie("Speak no Evil", "Unknown", 2022, "horror", 5, "");
-        Collection.addToCollection(mov1);
-        Collection.addToCollection(mov2);
-        Collection.addToCollection(mov3);
-
-
         primaryStage.setTitle("Film Tracker");
         primaryStage.setScene(mainScene);
         primaryStage.show();
+    }
+
+    public static void handleApplicationClose() {
+        Collection.saveCollection();
     }
 
     int getCurrentListingID(ListView<String> lv) {

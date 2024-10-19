@@ -3,10 +3,7 @@ package com.example.filmtracker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Collection {
@@ -22,11 +19,35 @@ public class Collection {
             ObjectOutputStream out = new ObjectOutputStream(file);
             for (int i = 0; i < collection.size(); i++) {
                 out.writeObject(collection.get(i));
+                System.out.println("Wrote " + collection.get(i).getName() + " to collection.col");
             }
             out.close();
             file.close();
         } catch(IOException ex) {
             System.out.println("IOException caught");
+        }
+    }
+
+    public static void loadCollection() {
+        boolean keepLoading = true;
+        try {
+            FileInputStream file = new FileInputStream("collection.col");
+            ObjectInputStream in = new ObjectInputStream(file);
+            while (keepLoading) {
+                Movie movie = (Movie)in.readObject();
+                collection.add(movie);
+                System.out.println(movie.getName() + " added to collection.");
+            }
+            in.close();
+            file.close();
+        } catch (IOException ex) {
+            System.out.println("IOException caught while loading.");
+            keepLoading = false;
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        if (!collection.isEmpty()) {
+            updateCollectionDisplay(collection);
         }
     }
 
