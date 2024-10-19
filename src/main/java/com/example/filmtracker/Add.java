@@ -25,6 +25,9 @@ public class Add {
         TextField listingNameField = new TextField();
         Label authorNameLabel = new Label("Author");
         TextField authorNameField = new TextField();
+        AuthorCheckbox unknownAuthorBox = new AuthorCheckbox("?");
+        unknownAuthorBox.setAuthorField(authorNameField);
+        unknownAuthorBox.setOnAction(e -> unknownAuthorBox.toggleAuthorUnknown());
         Label yearLabel = new Label("Year");
         TextField yearField = new TextField();
         final GenreBox genreBox = new GenreBox();
@@ -48,6 +51,9 @@ public class Add {
             addWindow.close();
         });
 
+        HBox authorControls = new HBox();
+        authorControls.getChildren().addAll(authorNameField, unknownAuthorBox);
+
         HBox comboBoxLayout = new HBox();
         comboBoxLayout.getChildren().addAll(genreBox, ratingBox);
 
@@ -55,7 +61,7 @@ public class Add {
         buttonLayout.getChildren().addAll(addButton, recommendedBox);
 
         VBox layout = new VBox();
-        layout.getChildren().addAll(listingNameLabel, listingNameField, authorNameLabel, authorNameField,
+        layout.getChildren().addAll(listingNameLabel, listingNameField, authorNameLabel, authorControls,
                 yearLabel, yearField, comboBoxLayout, commentsField, buttonLayout);
 
         Scene scene = new Scene(layout, 250, 250);
