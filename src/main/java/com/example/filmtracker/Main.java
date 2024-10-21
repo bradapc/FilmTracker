@@ -50,11 +50,13 @@ public class Main extends Application {
             }
         });
         Button recommendationButton = new Button("Recommend");
+        recommendationButton.setOnAction(e -> {
+            Recommend.display();
+        });
         viewListingButton.setMinWidth(100);
         addListingButton.setMinWidth(100);
         removeListingButton.setMinWidth(100);
         controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton, recommendationButton);
-
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
 
