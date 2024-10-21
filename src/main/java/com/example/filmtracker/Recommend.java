@@ -1,6 +1,7 @@
 package com.example.filmtracker;
 
 import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -14,9 +15,15 @@ public class Recommend {
 
         RecommendView recommendView = new RecommendView();
 
+        RatingBox ratingBox = new RatingBox();
+        ratingBox.setCurrentRating(recommendView.getRating());
+        GenreBox genreBox = new GenreBox();
+        genreBox.setCurrentGenre(recommendView.getGenre());
+
         VBox layout = new VBox();
+        HBox filterWrapper = new HBox(ratingBox, genreBox);
         VBox rvWrapper = new VBox(recommendView);
-        layout.getChildren().add(rvWrapper);
+        layout.getChildren().addAll(filterWrapper, rvWrapper);
 
         Scene scene = new Scene(layout, 300, 400);
         recommendWindow.setScene(scene);
