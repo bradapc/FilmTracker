@@ -17,6 +17,7 @@ public class Recommend {
 
         RatingBox ratingBox = new RatingBox();
         ratingBox.setCurrentRating(recommendView.getRating());
+        ratingBox.setOnAction(e -> recommendView.setRating(ratingBox.getIntRating()));
         GenreBox genreBox = new GenreBox();
         genreBox.setCurrentGenre(recommendView.getGenre());
         genreBox.setOnAction(e -> recommendView.setGenre(genreBox.getValue()));
