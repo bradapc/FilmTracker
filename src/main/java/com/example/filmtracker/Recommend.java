@@ -19,6 +19,7 @@ public class Recommend {
         ratingBox.setCurrentRating(recommendView.getRating());
         GenreBox genreBox = new GenreBox();
         genreBox.setCurrentGenre(recommendView.getGenre());
+        genreBox.setOnAction(e -> recommendView.setGenre(genreBox.getValue()));
 
         VBox layout = new VBox();
         HBox filterWrapper = new HBox(ratingBox, genreBox);

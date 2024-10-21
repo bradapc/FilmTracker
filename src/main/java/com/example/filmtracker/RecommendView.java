@@ -6,32 +6,34 @@ import java.util.ArrayList;
 
 public class RecommendView extends ListView<String> {
     public RecommendView() {
-        currentCollection = filterCollection(Collection.collection);
+        filterCollection();
         updateView();
     }
     int rating = 1;
     String genre = "";
     ArrayList<Movie> currentCollection;
 
-    public ArrayList<Movie> filterCollection(ArrayList<Movie> collection) {
+    public void filterCollection() {
         ArrayList<Movie> filteredCollection = new ArrayList<Movie>();
-        for (int i = 0; i < collection.size(); i++) {
-            if (!collection.get(i).getRecommendToFriend()) {
+        for (int i = 0; i < Collection.collection.size(); i++) {
+            if (!Collection.collection.get(i).getRecommendToFriend()) {
                 continue;
             }
-            if (collection.get(i).getRating() < getRating()) {
+            if (Collection.collection.get(i).getRating() < getRating()) {
                 continue;
             }
-            if (!(collection.get(i).getGenre().equals(getGenre()) || getGenre().isEmpty())) {
+            if (!(Collection.collection.get(i).getGenre().equals(getGenre()) || getGenre().isEmpty())) {
                 continue;
             }
-            filteredCollection.add(collection.get(i));
+            filteredCollection.add(Collection.collection.get(i));
         }
-        return filteredCollection;
+        currentCollection = filteredCollection;
+        updateView();
     }
 
     public void setGenre(String g) {
         genre = g;
+        filterCollection();
     }
 
     public String getGenre() {
@@ -40,6 +42,7 @@ public class RecommendView extends ListView<String> {
 
     public void setRating(int r) {
         rating = r;
+        filterCollection();
     }
 
     public int getRating() {
