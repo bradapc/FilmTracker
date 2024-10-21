@@ -26,6 +26,7 @@ public class Main extends Application {
         FilterBox filterListingsText = new FilterBox();
         filterListingsText.setPromptText("filter film listings");
         ListView<String> listingsDisplay = new ListView<String>();
+        //Fix this mess...
         Collection.collectionListView = listingsDisplay;
         Collection.collectionListLabel = collectionTitle;
         Collection.loadCollection();
@@ -48,10 +49,11 @@ public class Main extends Application {
                 Collection.removeMovieByID(getCurrentListingID(listingsDisplay));
             }
         });
-        viewListingButton.setMinWidth(80);
-        addListingButton.setMinWidth(80);
-        removeListingButton.setMinWidth(80);
-        controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton);
+        Button recommendationButton = new Button("Recommend");
+        viewListingButton.setMinWidth(100);
+        addListingButton.setMinWidth(100);
+        removeListingButton.setMinWidth(100);
+        controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton, recommendationButton);
 
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
