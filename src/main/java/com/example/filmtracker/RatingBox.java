@@ -27,7 +27,7 @@ public class RatingBox extends ComboBox<String> {
         }
         setValue(s);
     }
-    public String getCurrentRating(int rating) {
+    public static String getCurrentRating(int rating) {
         String s = "";
         for (int i = 0; i < rating; i++) {
             s += "★";

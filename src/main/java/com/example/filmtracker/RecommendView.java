@@ -31,6 +31,11 @@ public class RecommendView extends ListView<String> {
         updateView();
     }
 
+    public int getCurrentListingID(ListView<String> lv) {
+        String listing = lv.getSelectionModel().getSelectedItem();
+        return Integer.parseInt(listing.substring(0,listing.indexOf(":")));
+    }
+
     public void setGenre(String g) {
         genre = g;
         filterCollection();
