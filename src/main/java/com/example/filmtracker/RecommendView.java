@@ -9,8 +9,8 @@ public class RecommendView extends ListView<String> {
         filterCollection();
         updateView();
     }
-    int rating = 1;
-    String genre = "";
+    int rating = 5;
+    String genre = "All";
     ArrayList<Movie> currentCollection;
 
     public void filterCollection() {
@@ -22,7 +22,7 @@ public class RecommendView extends ListView<String> {
             if (Collection.collection.get(i).getRating() < getRating()) {
                 continue;
             }
-            if (!(Collection.collection.get(i).getGenre().equals(getGenre()) || getGenre().isEmpty())) {
+            if (!(Collection.collection.get(i).getGenre().equals(getGenre()) || getGenre().equals("All"))) {
                 continue;
             }
             filteredCollection.add(Collection.collection.get(i));

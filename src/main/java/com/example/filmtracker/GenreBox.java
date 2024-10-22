@@ -13,7 +13,8 @@ public class GenreBox extends ComboBox<String> {
                     "Drama",
                     "Fantasy",
                     "Action",
-                    "Adventure");
+                    "Adventure",
+                    "All");
     public GenreBox() {
         super(genres);
     }
