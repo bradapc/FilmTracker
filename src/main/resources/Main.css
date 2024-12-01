@@ -1,0 +1,18 @@
+.list-cell {
+    -fx-background-color: "#ffffff";
+    -fx-text-color: "#000000";
+}
+
+.list-cell:selected {
+    -fx-background-color: silver;
+    -fx-text-fill: black;
+}
+
+.list-view {
+    -fx-background-insets: 0;
+}
+
+.filter-box {
+    -fx-min-height: 30px;
+    -fx-font-size: 16px;
+}

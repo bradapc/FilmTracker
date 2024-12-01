@@ -18,6 +18,7 @@ public class FilterBox extends TextField {
             currentSearch = newValue.toLowerCase();
             updateCollectionBuffer(currentSearch);
         });
+        this.getStyleClass().add("filter-box");
     }
     ArrayList<Movie> collectionBuffer = new ArrayList<Movie>();
 

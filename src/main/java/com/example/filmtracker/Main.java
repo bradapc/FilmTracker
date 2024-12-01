@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -25,6 +24,7 @@ public class Main extends Application {
         Label collectionTitle = new Label();
         FilterBox filterListingsText = new FilterBox();
         filterListingsText.setPromptText("filter film listings");
+        filterListingsText.setFocusTraversable(false);
         ListView<String> listingsDisplay = new ListView<String>();
         //Fix this mess...
         Collection.collectionListView = listingsDisplay;
@@ -60,7 +60,7 @@ public class Main extends Application {
         controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton, recommendationButton);
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
-
+        mainScene.getStylesheets().add("Main.css");
         primaryStage.setTitle("Film Tracker");
         primaryStage.setScene(mainScene);
         primaryStage.show();
