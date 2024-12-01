@@ -16,3 +16,7 @@
     -fx-min-height: 30px;
     -fx-font-size: 16px;
 }
+
+#controls-vbox {
+    -fx-padding: 0px 0px 0px 8px;
+}

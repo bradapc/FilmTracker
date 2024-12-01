@@ -58,6 +58,7 @@ public class Main extends Application {
         removeListingButton.setMinWidth(100);
         recommendationButton.setMinWidth(100);
         controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton, recommendationButton);
+        controlsVBox.setId("controls-vbox");
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
         mainScene.getStylesheets().add("Main.css");
