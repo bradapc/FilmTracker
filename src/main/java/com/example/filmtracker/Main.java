@@ -64,6 +64,7 @@ public class Main extends Application {
         mainScene.getStylesheets().add("Main.css");
         primaryStage.setTitle("Film Tracker");
         primaryStage.setScene(mainScene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
