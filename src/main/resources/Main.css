@@ -1,6 +1,6 @@
 .list-cell {
-    -fx-background-color: "#ffffff";
-    -fx-text-color: "#000000";
+    -fx-background-color: "#B3B3B3";
+    -fx-text-fill: "#000000";
 }
 
 .list-cell:selected {
@@ -15,8 +15,39 @@
 .filter-box {
     -fx-min-height: 30px;
     -fx-font-size: 16px;
+    -fx-background-color: "#B3B3B3";
+    -fx-prompt-text-fill: #22A7F0;
 }
 
 #controls-vbox {
     -fx-padding: 0px 0px 0px 8px;
+}
+
+#collection-title {
+-fx-font-size: 16px;
+}
+
+#main-viewbox {
+    -fx-padding: 8px;
+    -fx-background-color: #404040;
+}
+
+.label {
+    -fx-text-fill: #22A7F0;
+    -fx-font-weight: BOLD;
+}
+
+.button {
+    -fx-background-color: #22A7F0;
+    -fx-font-weight: BOLD;
+    -fx-border-color: transparent;
+    -fx-border-width: 2 2 2 2;
+    -fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.button:hover {
+    -fx-border-color: white;
+    -fx-border-width: 2 2 2 2;
 }

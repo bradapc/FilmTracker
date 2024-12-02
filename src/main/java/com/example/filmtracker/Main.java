@@ -1,7 +1,9 @@
 package com.example.filmtracker;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.scene.control.Label;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         HBox mainViewBox = new HBox();
+        mainViewBox.setId("main-viewbox");
         VBox listingsVBox = new VBox();
         VBox controlsVBox = new VBox();
 
@@ -22,7 +25,9 @@ public class Main extends Application {
         });
 
         Label collectionTitle = new Label();
+        collectionTitle.setId("collection-title");
         FilterBox filterListingsText = new FilterBox();
+        filterListingsText.addEventFilter(ContextMenuEvent.CONTEXT_MENU_REQUESTED, Event::consume);
         filterListingsText.setPromptText("filter film listings");
         filterListingsText.setFocusTraversable(false);
         ListView<String> listingsDisplay = new ListView<String>();
