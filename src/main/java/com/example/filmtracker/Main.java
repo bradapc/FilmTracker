@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+//Add filter options --> sort main by title, stars, year, id etc.
 
 public class Main extends Application {
     @Override
