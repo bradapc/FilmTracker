@@ -64,6 +64,14 @@ public class Main extends Application {
         removeListingButton.setMinWidth(100);
         recommendationButton.setMinWidth(100);
         controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton, recommendationButton);
+        Label filterLabel = new Label("Filters");
+        Button filterByTitle = new Button("Title");
+        Button filterByYear = new Button("Year");
+        Button filterByAuthor = new Button("Author");
+        filterByTitle.setMinWidth(100);
+        filterByYear.setMinWidth(100);
+        filterByAuthor.setMinWidth(100);
+        controlsVBox.getChildren().addAll(filterLabel, filterByTitle, filterByYear, filterByAuthor);
         controlsVBox.setId("controls-vbox");
         mainViewBox.getChildren().addAll(listingsVBox, controlsVBox);
         Scene mainScene = new Scene(mainViewBox, 350, 350);
