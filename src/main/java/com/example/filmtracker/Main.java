@@ -65,9 +65,15 @@ public class Main extends Application {
         recommendationButton.setMinWidth(100);
         controlsVBox.getChildren().addAll(viewListingButton, addListingButton, removeListingButton, recommendationButton);
         Label filterLabel = new Label("Filters");
-        Button filterByTitle = new Button("Title");
-        Button filterByYear = new Button("Year");
-        Button filterByAuthor = new Button("Author");
+        FilterButton filterByTitle = new FilterButton("title");
+        filterByTitle.setText("title");
+        filterByTitle.setOnAction(e -> filterByTitle.updateFilterMode());
+        FilterButton filterByYear = new FilterButton("year");
+        filterByYear.setText("year");
+        filterByYear.setOnAction(e -> filterByYear.updateFilterMode());
+        FilterButton filterByAuthor = new FilterButton("author");
+        filterByAuthor.setText("author");
+        filterByAuthor.setOnAction(e -> filterByAuthor.updateFilterMode());
         filterByTitle.setMinWidth(100);
         filterByYear.setMinWidth(100);
         filterByAuthor.setMinWidth(100);

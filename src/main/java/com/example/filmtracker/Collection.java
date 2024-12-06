@@ -54,6 +54,45 @@ public class Collection {
         if (c.isEmpty()) {
             return;
         }
+        String filterMode = FilterButton.getFilterMode();
+        String direction = FilterButton.getDirection();
+        if (filterMode.equals("ID")) {
+
+        } else if (filterMode.equals("title")) {
+            if (direction.equals("ascending")) {
+                c.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
+            } else {
+                c.sort((o1, o2) -> o2.getName().compareTo(o1.getName()));
+            }
+        } else if (filterMode.equals("author")) {
+            if (direction.equals("ascending")) {
+                c.sort((o1, o2) -> o1.getAuthor().compareTo(o2.getName()));
+            } else {
+                c.sort((o1, o2) -> o2.getAuthor().compareTo(o1.getName()));
+            }
+        }   else if (filterMode.equals("year")) {
+            if (direction.equals("ascending")) {
+                c.sort((o1, o2) -> {
+                    if (o1.getYear() > o2.getYear()) {
+                        return 1;
+                    } else if (o1.getYear() < o2.getYear()) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                });
+            } else {
+                c.sort((o1, o2) -> {
+                    if (o2.getYear() > o1.getYear()) {
+                        return 1;
+                    } else if (o2.getYear() < o1.getYear()) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                });
+            }
+        }
         for (int i = 0; i < c.size(); i++) {
             String movieEntry = c.get(i).getID() + ": " + c.get(i).getName()
                     + " (" + c.get(i).getYear() + ")";
